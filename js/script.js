@@ -15,7 +15,7 @@ const team = [
         foto: "img/new-team-member-02.jpg"
     },
     {
-        nome: "ludovica",
+        nome: "Ludovica",
         ruolo: "Dirigente",
         foto: "img/angela-caroll-chief-editor.jpg"
     },
@@ -52,25 +52,26 @@ for (let i = 0; i < team.length; i++) {
     // stampo in console nome, ruolo, foto di ogni membro
     console.log(membro.nome, membro.ruolo, membro.foto)
 
+    // faccio innerHtml del template
+    teamContainer.innerHTML += createCard(membro)
+
+}
+
+
+function createCard(user){
     // creo il template per inserirlo nell html
     let template = `<div class="team-card">
                         <div class="card-image">
                         <img
-                            src= "${membro.foto}"
+                            src= "${user.foto}"
                             alt="Wayne Barnett"
                         />
                         </div>
                         <div class="card-text">
-                        <h3>${membro.nome}</h3>
-                        <p>${membro.ruolo}</p>
+                        <h3>${user.nome}</h3>
+                        <p>${user.ruolo}</p>
                         </div>
                     </div>`
 
-    console.log(template)
-
-    // faccio innerHtml del template
-    teamContainer.innerHTML += template
-
-
-    
+    return template
 }
